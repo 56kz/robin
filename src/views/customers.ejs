@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bancompartir</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_de_robin.gif/1200px-Logo_de_robin.gif" width="30" height="30" alt="">
+      </a>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <form action="/add" method="post">
+          <div class="form-group">
+            <input type="text" name="Name" placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <input type="text" name="identification" placeholder="numero de cedula">
+          </div>
+          <div class="form-group">
+            <input type="text" name="celular" placeholder="celular">
+          </div>
+          <div class="form-group">
+            <input type="text" name="correo" placeholder="correo">
+          </div>
+
+          <button type="submit" class="btn btn-primary"> GUARDAR CLIENTE</button>
+        </form>
+      </div>
+    </div>
+
+
+    <h1>Base de datos clientes</h1>
+
+
+
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Numero de cedula</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if (data) { %>
+            <% for (var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+                <td><%= data[i].Name %></td>
+                <td><%= data[i].identification %></td>
+                <td><%= data[i].celular %></td>
+                <td><%= data[i].correo %></td>
+                <td>
+                  <a href="/delete/<%= data[i].id %>"class="btn btn-danger">Eliminar</a>
+                  <a href="/update/<%= data[i].id %>"class="btn btn-info">Editar</a>
+
+
+                </td>
+
+              </tr>
+            <% } %>
+
+
+          <% } %>
+
+        </tbody>
+
+      </table>
+
+    </div>
+  </body>
+</html>

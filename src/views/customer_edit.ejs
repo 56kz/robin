@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+        <div class="container">
+          <div class="row">
+            <form action="/update/<%= data.id %>" method="post">
+              <div class="form-group">
+                <input type="text" name="Name" placeholder="Nombre" value="<%= data.Name %>">
+              </div>
+              <div class="form-group">
+                <input type="text" name="identification" placeholder="numero de cedula" value="<%= data.identification %>">
+              </div>
+              <div class="form-group">
+                <input type="text" name="celular" placeholder="celular" value="<%= data.celular %>">
+              </div>
+              <div class="form-group">
+                <input type="text" name="correo" placeholder="correo" value="<%= data.correo %>">
+              </div>
+
+              <button type="submit" class="btn btn-primary"> EDITAR CLIENTE</button>
+            </form>
+          </div>
+        </div>
+  </body>
+</html>
